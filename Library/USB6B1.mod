@@ -1,0 +1,133 @@
+PCBNEW-LibModule-V1  
+# encoding utf-8
+Units mm
+$INDEX
+SO08
+$EndINDEX
+$MODULE SO08
+Po 0 0 0 15 00000000 00000000 ~~
+Li SO08
+Cd <b>SMALL OUTLINE INTEGRATED CIRCUIT</b><p>body 3.9 mm/JEDEC MS-012AA
+Sc 00000000
+At SMD
+Op 0 0 0
+.SolderMask 0.1
+.SolderPaste 0
+T0 -3.81 -0.635 1 1 900 0.05 N V 21 "SO08"
+T1 3.81 -1.27 1 1 900 0.05 N V 21 "VAL**"
+DS -2.9 -3.9 2.9 -3.9 0.1998 24
+DS 2.9 -3.9 2.9 3.9 0.1998 24
+DS 2.9 3.9 -2.9 3.9 0.1998 24
+DS -2.9 3.9 -2.9 -3.9 0.1998 24
+DS 2.4 -1.9 2.4 1.4 0.2032 24
+DS 2.4 1.4 2.4 1.9 0.2032 24
+DS 2.4 1.9 -2.4 1.9 0.2032 24
+DS -2.4 1.9 -2.4 1.4 0.2032 24
+DS -2.4 1.4 -2.4 -1.9 0.2032 24
+DS -2.4 -1.9 2.4 -1.9 0.2032 24
+DS 2.4 1.4 -2.4 1.4 0.2032 24
+DP 0 0 0 0 4 0.381 24
+Dl -2.1501 2
+Dl -1.6599 2
+Dl -1.6599 3.1001
+Dl -2.1501 3.1001
+DP 0 0 0 0 4 0.381 24
+Dl -0.8801 2
+Dl -0.3899 2
+Dl -0.3899 3.1001
+Dl -0.8801 3.1001
+DP 0 0 0 0 4 0.381 24
+Dl 0.3899 2
+Dl 0.8801 2
+Dl 0.8801 3.1001
+Dl 0.3899 3.1001
+DP 0 0 0 0 4 0.381 24
+Dl 1.6599 2
+Dl 2.1501 2
+Dl 2.1501 3.1001
+Dl 1.6599 3.1001
+DP 0 0 0 0 4 0.381 24
+Dl 1.6599 -3.1001
+Dl 2.1501 -3.1001
+Dl 2.1501 -2
+Dl 1.6599 -2
+DP 0 0 0 0 4 0.381 24
+Dl 0.3899 -3.1001
+Dl 0.8801 -3.1001
+Dl 0.8801 -2
+Dl 0.3899 -2
+DP 0 0 0 0 4 0.381 24
+Dl -0.8801 -3.1001
+Dl -0.3899 -3.1001
+Dl -0.3899 -2
+Dl -0.8801 -2
+DP 0 0 0 0 4 0.381 24
+Dl -2.1501 -3.1001
+Dl -1.6599 -3.1001
+Dl -1.6599 -2
+Dl -2.1501 -2
+$PAD
+Sh "2" R 0.6 2.2 0 0 0
+At SMD N 00888000
+.SolderMask 0.2
+.SolderPaste 0
+Ne 0 ""
+Po -0.635 2.6
+$EndPAD
+$PAD
+Sh "7" R 0.6 2.2 0 0 0
+At SMD N 00888000
+.SolderMask 0.2
+.SolderPaste 0
+Ne 0 ""
+Po -0.635 -2.6
+$EndPAD
+$PAD
+Sh "1" R 0.6 2.2 0 0 0
+At SMD N 00888000
+.SolderMask 0.2
+.SolderPaste 0
+Ne 0 ""
+Po -1.905 2.6
+$EndPAD
+$PAD
+Sh "3" R 0.6 2.2 0 0 0
+At SMD N 00888000
+.SolderMask 0.2
+.SolderPaste 0
+Ne 0 ""
+Po 0.635 2.6
+$EndPAD
+$PAD
+Sh "4" R 0.6 2.2 0 0 0
+At SMD N 00888000
+.SolderMask 0.2
+.SolderPaste 0
+Ne 0 ""
+Po 1.905 2.6
+$EndPAD
+$PAD
+Sh "8" R 0.6 2.2 0 0 0
+At SMD N 00888000
+.SolderMask 0.2
+.SolderPaste 0
+Ne 0 ""
+Po -1.905 -2.6
+$EndPAD
+$PAD
+Sh "6" R 0.6 2.2 0 0 0
+At SMD N 00888000
+.SolderMask 0.2
+.SolderPaste 0
+Ne 0 ""
+Po 0.635 -2.6
+$EndPAD
+$PAD
+Sh "5" R 0.6 2.2 0 0 0
+At SMD N 00888000
+.SolderMask 0.2
+.SolderPaste 0
+Ne 0 ""
+Po 1.905 -2.6
+$EndPAD
+$EndMODULE SO08
