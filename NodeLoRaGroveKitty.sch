@@ -41,8 +41,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "LoRaCat: Kitty"
-Date "2016-10-20"
-Rev "0.2"
+Date "2016-12-16"
+Rev "0.3"
 Comp "Electronic Cats"
 Comment1 "Andres Sabas"
 Comment2 ""
@@ -533,7 +533,7 @@ F 3 "" H 9750 6250 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 Text Label 9300 6400 2    60   ~ 0
-GPIO15
+GPIO2
 Text Label 9300 6300 2    60   ~ 0
 GPIO13
 $Comp
@@ -738,7 +738,7 @@ NoConn ~ 8555 2385
 NoConn ~ 8455 2385
 Text Label 9925 1585 0    60   ~ 0
 GPIO0
-Text Label 9855 1685 0    60   ~ 0
+Text Label 9925 1685 0    60   ~ 0
 GPIO2
 Text Label 9925 1785 0    60   ~ 0
 GPIO15
@@ -945,12 +945,12 @@ NoConn ~ 10305 3855
 $Comp
 L D D5
 U 1 1 580A2F07
-P 5695 2670
-F 0 "D5" H 5695 2770 50  0000 C CNN
-F 1 "1N4001" H 5695 2570 50  0000 C CNN
-F 2 "Diodes_SMD:SMB_Handsoldering" H 5695 2670 50  0001 C CNN
-F 3 "" H 5695 2670 50  0000 C CNN
-	1    5695 2670
+P 8065 3670
+F 0 "D5" H 8065 3770 50  0000 C CNN
+F 1 "1N4001" H 8065 3570 50  0000 C CNN
+F 2 "Diodes_SMD:SMB_Handsoldering" H 8065 3670 50  0001 C CNN
+F 3 "" H 8065 3670 50  0000 C CNN
+	1    8065 3670
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -1215,7 +1215,7 @@ Connection ~ 1250 6100
 Wire Wire Line
 	1250 6100 1250 6300
 Wire Wire Line
-	1350 6300 1250 6300
+	1250 6300 1350 6300
 Wire Wire Line
 	1550 6300 1650 6300
 Wire Wire Line
@@ -1281,23 +1281,22 @@ Wire Wire Line
 Wire Wire Line
 	5130 1965 5580 1965
 Wire Wire Line
-	5845 2670 5975 2670
+	8215 3670 8345 3670
 Wire Wire Line
-	5975 2670 5975 2675
+	8345 3670 8345 3675
 Wire Wire Line
-	5545 2670 5405 2670
-Text Label 5405 2670 2    60   ~ 0
+	7915 3670 7775 3670
+Text Label 7775 3670 2    60   ~ 0
 RX_5V
-Text Label 5975 2675 0    60   ~ 0
+Text Label 8345 3675 0    60   ~ 0
 RX
-NoConn ~ 9925 1685
 $Comp
 L R R14
 U 1 1 585145DF
 P 5880 3870
 F 0 "R14" V 5960 3870 50  0000 C CNN
 F 1 "100K" V 5880 3870 50  0000 C CNN
-F 2 "" V 5810 3870 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 5810 3870 50  0001 C CNN
 F 3 "" H 5880 3870 50  0000 C CNN
 	1    5880 3870
 	0    1    1    0   
@@ -1335,6 +1334,38 @@ F 1 "+3.3V" H 9050 6090 50  0000 C CNN
 F 2 "" H 9050 5950 50  0000 C CNN
 F 3 "" H 9050 5950 50  0000 C CNN
 	1    9050 5950
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R15
+U 1 1 58543F5A
+P 5165 2925
+F 0 "R15" V 5245 2925 50  0000 C CNN
+F 1 "10K" V 5165 2925 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 5095 2925 50  0001 C CNN
+F 3 "" H 5165 2925 50  0000 C CNN
+	1    5165 2925
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5165 2775 5165 2620
+Wire Wire Line
+	5165 2620 5160 2620
+Wire Wire Line
+	5165 3075 5165 3240
+Wire Wire Line
+	5165 3240 5160 3240
+Text Label 5160 3240 3    60   ~ 0
+GPIO2
+$Comp
+L +3.3V #PWR038
+U 1 1 5854483F
+P 5160 2620
+F 0 "#PWR038" H 5160 2470 50  0001 C CNN
+F 1 "+3.3V" H 5160 2760 50  0000 C CNN
+F 2 "" H 5160 2620 50  0000 C CNN
+F 3 "" H 5160 2620 50  0000 C CNN
+	1    5160 2620
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC
