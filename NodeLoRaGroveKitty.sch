@@ -41,8 +41,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "LoRaCat: Kitty"
-Date "2016-12-16"
-Rev "0.3"
+Date "2017-01-2"
+Rev "0.4"
 Comp "Electronic Cats"
 Comment1 "Andres Sabas"
 Comment2 ""
@@ -746,8 +746,8 @@ Text Label 7615 1285 0    60   ~ 0
 ADC
 Text Label 7615 1385 0    60   ~ 0
 CH_PD
-Text Label 7755 1485 2    60   ~ 0
-GPIO16
+Text Label 7590 1485 2    60   ~ 0
+RST_RN
 Text Label 7625 1585 2    60   ~ 0
 S_TX
 Text Label 7605 1685 2    60   ~ 0
@@ -867,7 +867,6 @@ Text Label 5110 3660 0    60   ~ 0
 ADC
 Text Notes 4510 4200 0    60   ~ 0
 Voltage Divider of 3.3v to 1.1v
-NoConn ~ 7590 1485
 $Comp
 L CONN_01X06 P5
 U 1 1 5809A3FF
