@@ -607,9 +607,9 @@ TEST0
 Text Label 3350 2050 0    60   ~ 0
 TEST1
 Text Label 3350 1650 0    60   ~ 0
-S_RX
+SRX
 Text Label 1100 1650 2    60   ~ 0
-S_TX
+STX
 Text Label 1100 1150 0    60   ~ 0
 RST_RN
 $Comp
@@ -749,9 +749,9 @@ CH_PD
 Text Label 7590 1485 2    60   ~ 0
 RST_RN
 Text Label 7625 1585 2    60   ~ 0
-S_TX
+STX
 Text Label 7605 1685 2    60   ~ 0
-S_RX
+SRX
 Text Label 7615 1785 0    60   ~ 0
 GPIO13
 Text Label 7615 1185 0    60   ~ 0
