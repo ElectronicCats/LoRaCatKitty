@@ -1,4 +1,4 @@
-update=miércoles, 19 '19e' octubre '19e' 2016, 08:40:49
+update=martes, 10 '10e' enero '10e' 2017, 12:34:49
 version=1
 last_client=kicad
 [pcbnew]
@@ -75,3 +75,4 @@ LibName33=/Users/sabas/Downloads/h/antena_good
 LibName34=Library/RN2903-I_RM095
 LibName35=/Users/sabas/Documents/Kicad Librerias/ESP32-kiCAD-Footprints/ESP32-Footprints/ESP32-footprints-Shem-Lib
 LibName36=/Users/sabas/Documents/Kicad Librerias/ESP8266
+LibName37=/Users/sabas/Downloads/Common-Parts-Library-KiCad/Common-Parts-Library
