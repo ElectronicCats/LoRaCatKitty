@@ -1044,6 +1044,18 @@ F 3 "" H 5160 2620 50  0000 C CNN
 	1    5160 2620
 	1    0    0    -1  
 $EndComp
+$Comp
+L ZENERsmall D?
+U 1 1 58924335
+P 595 5845
+F 0 "D?" H 595 5645 50  0000 C CNN
+F 1 "MBR120" H 600 5930 50  0000 C CNN
+F 2 "Diodes_SMD:SOD-123" H 595 5845 50  0001 C CNN
+F 3 "" H 595 5845 50  0000 C CNN
+F 4 "NRVB120VLSFT1G" H 595 5845 60  0001 C CNN "manf#"
+	1    595  5845
+	0    -1   -1   0   
+$EndComp
 Wire Wire Line
 	9905 3695 9905 3845
 Wire Wire Line
@@ -1281,8 +1293,6 @@ Wire Wire Line
 Wire Wire Line
 	2900 6100 2900 6000
 Connection ~ 700  6100
-Wire Wire Line
-	600  5550 600  6100
 Connection ~ 1000 6450
 Wire Wire Line
 	1000 6350 1000 6600
@@ -1377,4 +1387,12 @@ Wire Wire Line
 	5165 3240 5160 3240
 Wire Wire Line
 	2600 6100 2900 6100
+Wire Wire Line
+	595  5745 595  5550
+Wire Wire Line
+	595  5550 600  5550
+Wire Wire Line
+	600  6100 600  5945
+Wire Wire Line
+	600  5945 595  5945
 $EndSCHEMATC
