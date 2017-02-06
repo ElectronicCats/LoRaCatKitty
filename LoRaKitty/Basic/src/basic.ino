@@ -31,8 +31,8 @@
 #include <WiFiUdp.h>
 #include <ArduinoOTA.h>
 
-const char* ssid = "..........";
-const char* password = "..........";
+const char* ssid = "TIH-Alpha-2.4G";
+const char* password = "*/inventores/*";
 
 #define RESET 16
 SoftwareSerial mySerial(12, 14); // RX, TX !! labels on relay board is swapped !!
@@ -49,7 +49,7 @@ void setup() {
   led_on();
 
   // Open serial communications and wait for port to open:
-  Serial.begin(57600);
+  Serial.begin(9600);
   mySerial.begin(57600);
 
   delay(1000); //wait for the arduino ide's serial console to open
@@ -149,10 +149,10 @@ void initialize_radio()
   bool join_result = false;
 
   //ABP: initABP(String addr, String AppSKey, String NwkSKey);
-  //join_result = myLora.initABP("02017201", "8D7FFEF938589D95AAD928C2E2E7E48F", "AE17E567AECC8787F749A62F5541D522");
+  join_result = myLora.initABP("02017201", "8D7FFEF938589D95AAD928C2E2E7E48F", "AE17E567AECC8787F749A62F5541D522");
 
   //OTAA: initOTAA(String AppEUI, String AppKey);
-  join_result = myLora.initOTAA("70B3D57ED0000DD4", "C490522D08D3829DC0388D73EACD130F");
+  //join_result = myLora.initOTAA("70B3D57ED0000DD4", "C490522D08D3829DC0388D73EACD130F");
 
   while(!join_result)
   {
@@ -170,7 +170,7 @@ void loop() {
 
     led_on();
 
-    Serial.println("TXing");
+    Serial.println("TXingrrr");
     myLora.tx("!"); //one byte, blocking function
 
     led_off();
