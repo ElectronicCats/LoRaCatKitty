@@ -20,8 +20,8 @@
   )
 
   (layers
-    (0 F.Cu signal)
-    (31 B.Cu signal)
+    (0 F.Cu signal hide)
+    (31 B.Cu signal hide)
     (32 B.Adhes user)
     (33 F.Adhes user)
     (34 B.Paste user)
@@ -2794,7 +2794,7 @@
   (gr_text "GND\nVCC\nSDA\nSCL" (at 138.684 142.748 90) (layer B.SilkS)
     (effects (font (size 1.5 1.5) (thickness 0.3)) (justify mirror))
   )
-  (gr_text "GND\nVCC\nD13\nD15" (at 123.952 143.256 90) (layer B.SilkS)
+  (gr_text "GND\nVCC\nD13\nD2" (at 123.952 143.256 90) (layer B.SilkS)
     (effects (font (size 1.5 1.5) (thickness 0.3)) (justify mirror))
   )
   (gr_text "GND\nVCC\nNC\nA0" (at 108.966 142.748 90) (layer B.SilkS)
