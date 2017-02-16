@@ -42,8 +42,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "LoRaCat: Kitty"
-Date "2017-01-2"
-Rev "0.4"
+Date "2017-02-16"
+Rev "0.5"
 Comp "Electronic Cats"
 Comment1 "Andres Sabas"
 Comment2 ""
@@ -1539,4 +1539,5 @@ Wire Notes Line
 Text Notes 5000 4910 0    60   ~ 0
 USB TO SERIAL CONVERTER
 NoConn ~ 4220 5525
+NoConn ~ 2215 2965
 $EndSCHEMATC
