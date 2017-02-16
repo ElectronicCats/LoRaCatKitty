@@ -1,4 +1,4 @@
-update=martes, 10 '10e' enero '10e' 2017, 12:34:49
+update=jueves, 16 '16e' febrero '16e' 2017, 13:36:14
 version=1
 last_client=kicad
 [pcbnew]
@@ -76,3 +76,4 @@ LibName34=Library/RN2903-I_RM095
 LibName35=/Users/sabas/Documents/Kicad Librerias/ESP32-kiCAD-Footprints/ESP32-Footprints/ESP32-footprints-Shem-Lib
 LibName36=/Users/sabas/Documents/Kicad Librerias/ESP8266
 LibName37=/Users/sabas/Downloads/Common-Parts-Library-KiCad/Common-Parts-Library
+LibName38=Library/CP2104
