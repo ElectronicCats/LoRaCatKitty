@@ -1,4 +1,4 @@
-update=jueves, 16 '16e' febrero '16e' 2017, 13:36:14
+update=Saturday, 18 February 2017 'pmt' 17:41:11
 version=1
 last_client=kicad
 [pcbnew]
@@ -77,3 +77,5 @@ LibName35=/Users/sabas/Documents/Kicad Librerias/ESP32-kiCAD-Footprints/ESP32-Fo
 LibName36=/Users/sabas/Documents/Kicad Librerias/ESP8266
 LibName37=/Users/sabas/Downloads/Common-Parts-Library-KiCad/Common-Parts-Library
 LibName38=Library/CP2104
+LibName39=NodeLoRaGroveKitty-cache
+LibName40=Library/ESP8266
