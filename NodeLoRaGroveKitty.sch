@@ -284,7 +284,7 @@ U 1 1 57D1D8CD
 P 3935 6855
 F 0 "P2" H 3935 7005 50  0000 C CNN
 F 1 "Battery" V 4035 6855 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Angled_1x02_Pitch2.54mm" H 3935 6855 50  0001 C CNN
+F 2 "modules:panelmate_smd_2" H 3935 6855 50  0001 C CNN
 F 3 "" H 3935 6855 50  0000 C CNN
 	1    3935 6855
 	1    0    0    -1  
