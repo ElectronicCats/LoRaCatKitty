@@ -1,4 +1,4 @@
-update=martes, 21 '21e' febrero '21e' 2017, 13:58:07
+update=Tuesday, 11 April 2017 'pmt' 17:52:04
 version=1
 last_client=kicad
 [pcbnew]
@@ -80,3 +80,4 @@ LibName38=/Users/sabas/Downloads/Common-Parts-Library-KiCad/Common-Parts-Library
 LibName39=Library/CP2104
 LibName40=NodeLoRaGroveKitty-cache
 LibName41=Library/ESP8266
+LibName42=Library/10118192-0001LF
