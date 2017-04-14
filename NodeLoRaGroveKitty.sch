@@ -287,6 +287,7 @@ F 0 "P2" H 3935 7005 50  0000 C CNN
 F 1 "Battery" V 4035 6855 50  0000 C CNN
 F 2 "modules:panelmate_smd_2" H 3935 6855 50  0001 C CNN
 F 3 "" H 3935 6855 50  0000 C CNN
+F 4 "S2B-PH-SM4-TB(LF)(SN)" H 3935 6855 60  0001 C CNN "#manf"
 	1    3935 6855
 	1    0    0    -1  
 $EndComp
