@@ -2,10 +2,10 @@
  * Author: Andres Sabas @ Electronic Cats
  * Date: 2017-01-27
  *
- * Example for LoRa Kitty with OTA
+ * Example for LoRa Kitty with OTA and ABP or OTAA LORAWAM
  * Transmit a one byte packet via LoRaWAN. This happens as fast as possible, while still keeping to
- * the 1% duty cycle rules enforced by the RN2903's built in LoRaWAN stack. Even though this is
- * allowed by the radio regulations of the 868MHz band, the fair use policy of LoRaWAN may prohibit this.
+ * the 1% duty cycle rules enforced by the RN2xx3's built in LoRaWAN stack. Even though this is
+ * allowed by the radio regulations of the 868MHz and 915Mhz band, the fair use policy of LoRaWAN may prohibit this.
  *
  * CHECK THE RULES BEFORE USING THIS PROGRAM!
  *
@@ -49,20 +49,34 @@ void setup() {
   led_on();
 
   // Open serial communications and wait for port to open:
-  Serial.begin(9600);
+  Serial.begin(115200);
   mySerial.begin(57600);
 
-  delay(1000); //wait for the arduino ide's serial console to open
+  delay(10); //wait for the arduino ide's serial console to open
 
   Serial.println("Setup WiFi Connection");
 
+  Serial.println();
+  Serial.println();
+  Serial.print("Connecting to ");
+  Serial.println(ssid);
+
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, password);
+
   while (WiFi.waitForConnectResult() != WL_CONNECTED) {
     Serial.println("Connection Failed! Rebooting...");
     delay(5000);
     ESP.restart();
 }
+
+/*
+while (WiFi.status() != WL_CONNECTED) {
+  delay(500);
+  Serial.print(".");
+}
+  */
+
     // Port defaults to 8266
     // ArduinoOTA.setPort(8266);
 
@@ -75,9 +89,8 @@ void setup() {
     // Password can be set with it's md5 value as well
     // MD5(admin) = 21232f297a57a5a743894a0e4a801fc3
     // ArduinoOTA.setPasswordHash("21232f297a57a5a743894a0e4a801fc3");
-
+/*
     ArduinoOTA.onStart([]() {
-      /*
       String type;
       if (ArduinoOTA.getCommand() == U_FLASH)
         type = "sketch";
@@ -86,8 +99,9 @@ void setup() {
 
       // NOTE: if updating SPIFFS this would be the place to unmount SPIFFS using SPIFFS.end()
       Serial.println("Start updating " + type);
-      */
+
     });
+    */
     ArduinoOTA.onEnd([]() {
       Serial.println("\nEnd");
     });
@@ -102,7 +116,10 @@ void setup() {
       else if (error == OTA_RECEIVE_ERROR) Serial.println("Receive Failed");
       else if (error == OTA_END_ERROR) Serial.println("End Failed");
     });
+
     ArduinoOTA.begin();
+
+
     Serial.println("Ready");
     Serial.print("IP address: ");
     Serial.println(WiFi.localIP());
@@ -149,10 +166,10 @@ void initialize_radio()
   bool join_result = false;
 
   //ABP: initABP(String addr, String AppSKey, String NwkSKey);
-  join_result = myLora.initABP("02017201", "8D7FFEF938589D95AAD928C2E2E7E48F", "AE17E567AECC8787F749A62F5541D522");
+  //join_result = myLora.initABP("02017201", "8D7FFEF938589D95AAD928C2E2E7E48F", "AE17E567AECC8787F749A62F5541D522");
 
   //OTAA: initOTAA(String AppEUI, String AppKey);
-  //join_result = myLora.initOTAA("70B3D57ED0000DD4", "C490522D08D3829DC0388D73EACD130F");
+  join_result = myLora.initOTAA("70B3D57ED0000DD4", "C490522D08D3829DC0388D73EACD130F");
 
   while(!join_result)
   {
