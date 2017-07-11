@@ -24,15 +24,21 @@
  * Gnd -- Gnd
  *
  */
+
+
 #include <rn2xx3.h>
 #include <SoftwareSerial.h>
 #include <ESP8266WiFi.h>
 #include <ESP8266mDNS.h>
 #include <WiFiUdp.h>
 #include <ArduinoOTA.h>
+#include<CayenneLPP.h>
 
-const char* ssid = "TIH-Alpha-2.4G";
-const char* password = "*/inventores/*";
+//Use Low Power Payload https://mydevices.com/cayenne/docs/lora/#lora-cayenne-low-power-payload
+CayenneLPP lpp(51);
+
+const char* ssid = "TIH-Alpha-2.4";
+const char* password = "";
 
 #define RESET 16
 SoftwareSerial mySerial(12, 14); // RX, TX !! labels on relay board is swapped !!
@@ -46,7 +52,6 @@ rn2xx3 myLora(mySerial);
 void setup() {
   // LED pin is GPIO2 which is the ESP8266's built in LED
   pinMode(2, OUTPUT);
-  led_on();
 
   // Open serial communications and wait for port to open:
   Serial.begin(115200);
@@ -128,9 +133,7 @@ while (WiFi.status() != WL_CONNECTED) {
   initialize_radio();
 
   //transmit a startup message
-  myLora.tx("TTN Mapper on ESP8266 node");
-
-  led_off();
+  myLora.tx("LoRaCat Kitty in TTN");
   delay(2000);
 }
 
@@ -166,10 +169,10 @@ void initialize_radio()
   bool join_result = false;
 
   //ABP: initABP(String addr, String AppSKey, String NwkSKey);
-  //join_result = myLora.initABP("02017201", "8D7FFEF938589D95AAD928C2E2E7E48F", "AE17E567AECC8787F749A62F5541D522");
+  join_result = myLora.initABP("26021B7C", "3D016DF9E60F6270890FDC2B753C0E99", "EA40E937CF5592742ECA30DEBC1954E5");
 
   //OTAA: initOTAA(String AppEUI, String AppKey);
-  join_result = myLora.initOTAA("70B3D57ED0000DD4", "C490522D08D3829DC0388D73EACD130F");
+  //join_result = myLora.initOTAA("70B3D57EF00062AD", "585CD899C0FAE54AC20CB5349D85F091");
 
   while(!join_result)
   {
@@ -184,22 +187,37 @@ void initialize_radio()
 // the loop routine runs over and over again forever:
 void loop() {
     ArduinoOTA.handle();
+    //Reset buffer of lpp
+    lpp.reset();
 
-    led_on();
+    //Read button
+    read_button();
 
-    Serial.println("TXingrrr");
-    myLora.tx("!"); //one byte, blocking function
+    //Read light
+    read_light();
 
-    led_off();
-    delay(200);
+    Serial.println("Sending Data");
+    myLora.txBytes(lpp.getBuffer(), lpp.getSize());
+
+    delay(100);
 }
 
-void led_on()
-{
-  digitalWrite(2, 1);
+void read_light(){
+  int light = analogRead(0);
+  Serial.println(light);
+  lpp.addAnalogInput(1, light);
 }
 
-void led_off()
-{
-  digitalWrite(2, 0);
+void read_button(){
+  if(digitalRead(15)==1){
+    Serial.println("Button press!");
+    lpp.addDigitalInput(2, 1);
+  }
+  else
+  {
+    Serial.println("Button NO press");
+    lpp.addDigitalInput(2, 0);
+  }
+
+
 }
