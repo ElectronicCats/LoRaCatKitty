@@ -32,12 +32,12 @@
 #include <ESP8266mDNS.h>
 #include <WiFiUdp.h>
 #include <ArduinoOTA.h>
-#include<CayenneLPP.h>
+#include <CayenneLPP.h>
 
 //Use Low Power Payload https://mydevices.com/cayenne/docs/lora/#lora-cayenne-low-power-payload
 CayenneLPP lpp(51);
 
-const char* ssid = "TIH-Alpha-2.4";
+const char* ssid = "TIH-Alpha2.4";
 const char* password = "";
 
 #define RESET 16
@@ -51,7 +51,7 @@ rn2xx3 myLora(mySerial);
 // the setup routine runs once when you press reset:
 void setup() {
   // LED pin is GPIO2 which is the ESP8266's built in LED
-  pinMode(2, OUTPUT);
+  pinMode(2, INPUT);
 
   // Open serial communications and wait for port to open:
   Serial.begin(115200);
@@ -70,17 +70,20 @@ void setup() {
   WiFi.begin(ssid, password);
 
   while (WiFi.waitForConnectResult() != WL_CONNECTED) {
-    Serial.println("Connection Failed! Rebooting...");
-    delay(5000);
-    ESP.restart();
+    Serial.println("Connection Failed! No WiFi!...");
+    //delay(5000);
+    //ESP.restart();
+    break;
 }
 
 /*
 while (WiFi.status() != WL_CONNECTED) {
   delay(500);
   Serial.print(".");
-}
-  */
+}*/
+
+if(WiFi.waitForConnectResult() == WL_CONNECTED) {
+
 
     // Port defaults to 8266
     // ArduinoOTA.setPort(8266);
@@ -128,13 +131,9 @@ while (WiFi.status() != WL_CONNECTED) {
     Serial.println("Ready");
     Serial.print("IP address: ");
     Serial.println(WiFi.localIP());
-
-  //
+}
+  //initialize radio LoRa
   initialize_radio();
-
-  //transmit a startup message
-  myLora.tx("LoRaCat Kitty in TTN");
-  delay(2000);
 }
 
 void initialize_radio()
@@ -169,15 +168,15 @@ void initialize_radio()
   bool join_result = false;
 
   //ABP: initABP(String addr, String AppSKey, String NwkSKey);
-  join_result = myLora.initABP("26021B7C", "3D016DF9E60F6270890FDC2B753C0E99", "EA40E937CF5592742ECA30DEBC1954E5");
+  //join_result = myLora.initABP("26021B7C", "3D016DF9E60F6270890FDC2B753C0E99", "EA40E937CF5592742ECA30DEBC1954E5");
 
   //OTAA: initOTAA(String AppEUI, String AppKey);
-  //join_result = myLora.initOTAA("70B3D57EF00062AD", "585CD899C0FAE54AC20CB5349D85F091");
+  join_result = myLora.initOTAA("70B3D57EF00062AD", "150C667A235B003361457751594DCAFB");
 
   while(!join_result)
   {
     Serial.println("Unable to join. Are your keys correct, and do you have TTN coverage?");
-    delay(60000); //delay a minute before retry
+    delay(30000); //delay a 30 seg before retry
     join_result = myLora.init();
   }
   Serial.println("Successfully joined TTN");
@@ -199,7 +198,7 @@ void loop() {
     Serial.println("Sending Data");
     myLora.txBytes(lpp.getBuffer(), lpp.getSize());
 
-    delay(100);
+    delay(30000); // delay 30 seg for TTN
 }
 
 void read_light(){
@@ -209,7 +208,7 @@ void read_light(){
 }
 
 void read_button(){
-  if(digitalRead(15)==1){
+  if(digitalRead(2)==1){
     Serial.println("Button press!");
     lpp.addDigitalInput(2, 1);
   }
