@@ -50,3 +50,9 @@ Temporary Items
 LoRaKitty/Basic/lib/arduino-device-lib/
 
 LoRaKitty/Basic/lib/
+
+LoRaKitty/Basic/\.clang_complete
+
+LoRaKitty/Basic/\.pioenvs/d1_mini/
+
+LoRaKitty/Basic/
